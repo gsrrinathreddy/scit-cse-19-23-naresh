@@ -1,23 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import IButton from './components/IButton';
+import IAutocomplete from './components/IAutocomplete';
+import INavbar from './components/INavbar';
+import AboutMe from './pages/AboutMe';
+import Qualification from './pages/Qualification';
+import Skills from './pages/Skills';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="fswd-app">
+      <INavbar/>
+      <AboutMe/>
+      <Qualification/>
+      <Skills/>
     </div>
   );
 }
