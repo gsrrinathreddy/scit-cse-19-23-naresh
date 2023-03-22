@@ -6,14 +6,18 @@ import INavbar from './components/INavbar';
 import AboutMe from './pages/AboutMe';
 import Qualification from './pages/Qualification';
 import Skills from './pages/Skills';
+import {Routes,Route} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
     <div className="fswd-app">
       <INavbar/>
-      <AboutMe/>
-      <Qualification/>
-      <Skills/>
+      <Routes>
+        <Route path='/About Me' element={<AboutMe/>}/>
+        <Route path='/Qualification' element={<Qualification/>}/>
+        <Route path='/Skills' element={<Skills/>}/>
+        </Routes>
     </div>
   );
 }
