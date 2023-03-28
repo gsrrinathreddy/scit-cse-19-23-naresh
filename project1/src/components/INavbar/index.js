@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 
-const pages = ['About Me', 'Qualification', 'Skills','Hobbies','Workshops','Certifications','Projects'];
+const pages = ['About Me', 'Qualifications', 'Experience','Hobbies','Skills','Certifications'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function INavbar() {
@@ -56,7 +56,7 @@ function INavbar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            NARESH NAKKA
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

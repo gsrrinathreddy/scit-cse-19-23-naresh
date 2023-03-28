@@ -4,8 +4,11 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
+    "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.6",
+    "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.11.11",
+    "@mui/lab": "^5.0.0-alpha.124",
     "@mui/material": "^5.11.14",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -14,6 +17,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
+    "react-timelines": "^2.6.1",
+    "timeline": "^3.4.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
