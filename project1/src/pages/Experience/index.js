@@ -5,6 +5,9 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
+import { CircularProgress,Box } from '@mui/material';
+import axios from 'axios';
+import {useEffect,useState} from 'react';
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -42,7 +45,24 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
 
-export default function CustomizedAccordions() {
+export default function Experience() {
+  let [loader,setLoader]=useState(true);
+    let [Experience,setExperience]=useState(null);
+
+    const getExperienceData = async () => axios.get('http://localhost:8000/Experience')
+
+                                           .then(res=>{
+                                            setExperience(res.data)
+                                            setLoader(false)
+                                           }).catch(err => console.log(err))
+     useEffect(()=>{
+        getExperienceData();
+     },[])                                      
+    
+    console.log("Experience",Experience)
+
+
+
   const [expanded, setExpanded] = React.useState('panel1');
 
   const handleChange = (panel) => (event, newExpanded) => {
@@ -51,6 +71,14 @@ export default function CustomizedAccordions() {
 
   return (
     <div>
+      {
+            loader ? <CircularProgress/> : <Box>
+                <Typography variant="h3">
+                    {Experience.Experience}
+                </Typography>
+                
+            </Box>
+          }
       <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
           <Typography>Collapsible Group Item #1</Typography>
@@ -89,6 +117,7 @@ export default function CustomizedAccordions() {
             sit amet blandit leo lobortis eget.
           </Typography>
         </AccordionDetails>
+        
       </Accordion>
     </div>
   );

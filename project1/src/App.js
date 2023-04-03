@@ -13,6 +13,9 @@ import {Routes,Route, Link} from 'react-router-dom';
 import ITimeline from './components/ITimeline';
 import Grid from '@mui/material/Grid';
 import IImage from './components/IImage';
+import Contactme from './pages/Contactme';
+import Projects from './pages/Projects';
+import Workshops from './pages/Workshops';
 
 
 function App() {
@@ -28,6 +31,9 @@ function App() {
         <Route path='/Hobbies' element={<Hobbies/>}/>
         <Route path='/Skills' element={<Skills/>}/>
         <Route path='/Certifications' element={<Certifications/>}/>
+        <Route path='/Contactme' element={<Contactme/>}/>
+        <Route path='/Projects' element={<Projects/>}/>
+        <Route path='/Workshops' element={<Workshops/>}/>
         
         
       </Routes>

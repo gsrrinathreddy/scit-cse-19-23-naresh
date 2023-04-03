@@ -6,9 +6,24 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
+import {CircularProgress,Box} from '@mui/material';
+import axios from 'axios';
+import {useEffect,useState} from 'react';
 
-export default function Qualifications() {
+export default function Qualification() {
+  let[loader,setLoader]=useState(true);
+  let[Qualification,setQualification]=useState(null);
+  const getQualificationData=async()=>axios.get('http://localhost:8000/Qualification')
+                                           .then(res=>{
+                                            setQualification(res.data)
+                                            setLoader(false)
+                                           }).catch(err => console.log(err))
+      useEffect(()=>{
+        getQualificationData();
+      },[])
+
   return (
+    
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', p: 3}}>
       <h1 className='mode'>Qualifications</h1>
       <ListItem alignItems="flex-start">
@@ -75,7 +90,21 @@ export default function Qualifications() {
             </React.Fragment>
           }
         />
+        
       </ListItem>
+      {
+            loader ? <CircularProgress/> : <Box>
+                <Typography variant="h4">
+                    {Qualification.Graduation}
+                </Typography>
+                <Typography variant="h4">
+                    {Qualification.Intermediate}
+                </Typography>
+                <Typography variant="h4">
+                    {Qualification.SSC}
+                </Typography>
+            </Box>
+          }
     </List>
   );
 }
